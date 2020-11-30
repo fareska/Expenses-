@@ -9,6 +9,7 @@ app.use(express.urlencoded({ extended: false }))
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/expensesDB', {useNewUrlParser: true})
 
+
 const data = require(`./data`)
 data.forEach(d => {
     let e = new Expense ({
@@ -19,6 +20,7 @@ data.forEach(d => {
     })
     e.save()
 });
+
 
 app.use('/', api)
 
