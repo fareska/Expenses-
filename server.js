@@ -9,21 +9,18 @@ app.use(express.urlencoded({ extended: false }))
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/expensesDB', {useNewUrlParser: true})
 
-
-const data = require(`./data`)
-data.forEach(d => {
-    let e = new Expense ({
-        name:  d.item,
-        amount: d.amount,
-        date:  d.date,
-        group: d.group
-    })
-    e.save()
-});
-
+// const data = require(`./data`)
+// data.forEach(d => {
+//     let e = new Expense ({
+//         name:  d.item,
+//         amount: d.amount,
+//         date:  d.date,
+//         group: d.group
+//     })
+//     e.save()
+// });
 
 app.use('/', api)
-
 
 const port = 4100
 app.listen(port, function () {
